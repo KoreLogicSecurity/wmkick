@@ -1,0 +1,10 @@
+exclude *
+include Makefile
+include README
+include README.CREDITS
+include README.HOWTO
+include README.INSTALL
+include README.LICENSE
+include setup.py
+include wmkick.py
+include wmkick_lib/*.py

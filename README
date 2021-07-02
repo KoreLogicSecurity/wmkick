@@ -1,0 +1,47 @@
+
+Table of Contents
+
+  Section 1 .................... Overview
+  Section 2 .................... Documentation
+  Section 3 .................... License
+  Section 4 .................... References
+
+1 Overview
+
+  WMkick is a TCP protocol redirector/MITM tool that targets NTLM
+  authentication message flows in WMI (135/tcp) and
+  Powershell-Remoting/WSMan/WinRM (5985/tcp) to capture NetNTLMv2
+  hashes. Once a hash has been captured, popular cracking tools such
+  as Hashcat and JtR can be used to recover plaintext passwords.
+  WMkick automates the hash extraction process and alleviates the
+  need to build/use a WMI (or WSMAN) Auth Server or perform manual
+  packet analysis.
+
+  A use case for WMkick is for internal penetration tests.  If the
+  penetration tester can redirect these protocols to their own
+  Windows virtual machine or remote target hosting WMI or WSMan
+  services, it is possible to obtain a valid NetNTLMv2 hash, which
+  can be cracked into a plaintext credential, in order to go from
+  a non-credentialed to credentialed perspective.  A possible
+  situation that may be observed in the target environment is
+  software or administrative scripts running remote WMI or WSMan
+  commands over a subnet in which wmkick is running, the attacker
+  may take advantage of this.
+
+2 Documentation
+
+  See README.INSTALL for requirements and instructions on how to
+  build, test, and install this software.
+
+3 License
+
+  The terms and conditions under which this software is released are
+  set forth in 'README.LICENSE'.
+
+4 References
+
+  The NT LAN Manager (NTLM) Authentication Protocol is documented
+  here:
+
+    https://winprotocoldoc.blob.core.windows.net/productionwindowsarchives/MS-NLMP/%5bMS-NLMP%5d.pdf
+

@@ -1,0 +1,83 @@
+
+Table of Contents
+
+  Section 1 .................... Requirements
+  Section 2 .................... Installation
+  Section 2.1 .................. Production Install
+  Section 2.2................... Developmental Install
+
+1 Requirements
+
+  WMkick is known to work on Linux platforms running Python 3.7.3 or
+  higher. The minimum required Python version is 3.3. Other platforms
+  and earlier versions of Python may work, but have not been tested.
+
+  WMkick requires the following external modules:
+
+    - coloredlogs (https://pypi.org/project/coloredlogs/)
+    - kargparse (https://github.com/KoreLogicSecurity/kargparse)
+    - scapy (https://pypi.org/project/scapy/)
+
+  The following is also required to properly function:
+
+  * A target Windows 10 host accepting WMI (TCP/135), WSMAN HTTP
+  (5985/TCP), or WSMAN HTTPS (5986) requests via NTLMSSP.
+
+    +----------+            +----------+             +----------+
+    |victim    |----------->|wmkick    |             |target    |
+    |          |            |  host    |------------>| windows  |
+    |          |            |          |<------------|  host    |
+    |          |<-----------|          |             |          |
+    +----------+            +----------+             +----------+
+
+  The installation process requires Python's setuptools. Depending on
+  your environment, setuptools can be installed as documented below.
+
+  Gentoo:
+
+    $ sudo emerge -av setuptools
+
+  Debian-ish:
+
+    $ sudo apt install python-setuptools
+
+  Python:
+
+    $ pip3 install setuptools
+
+2 Installation
+
+  Two forms of installation are supported: production and
+  developmental. Use the production form if your goal is to
+  install the software and use it in some official capacity. Use
+  the developmental form if your goal is to evaluate, test, or
+  develop the software.
+
+2.1 Production Install
+
+  To install this software in the appropriate Python site-packages
+  directory for your system, run:
+
+    $ sudo make install
+
+  Standalone scripts will be installed under /usr/local/bin.
+
+2.2 Developmental Install
+
+  To install this software for evaluation, testing, or development
+  purposes, run:
+
+    $ make install-dev
+
+  This will install a placeholder in Python's site-packages under
+  ~/.local that points to the top-level source directory (assuming
+  that's where you are currently located). Any modifications made
+  to the code will automatically be reflected when running the
+  software. Additionally, user-executable scripts will be placed
+  under ~/.local/bin.  Make sure that ~/.local/bin is in your PATH.
+
+  Note that this environment can be torn down, if no longer needed,
+  with:
+
+    $ make uninstall-dev
+

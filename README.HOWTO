@@ -1,0 +1,18 @@
+
+  To use WMkick, you need at least three hosts: 1) a victim Windows
+  host, 2) a WMkick redirection host, and 3) a target Windows host
+  accepting WMI (TCP/135), WSMAN HTTP (5985/TCP), or WSMAN HTTPS
+  (5986) requests via NTLMSSP is required.
+
+  Since WMkick is a Man-In-The-Middle (MITM) utility, you must
+  arrange to have authentication requests from the victim host
+  flow through the WMkick host on their way to the target host. The
+  diagram below depicts the required setup and traffic flows.
+
+    +----------+            +----------+             +----------+
+    |          |----------->|          |             |          |
+    |  Victim  |            |  WMkick  |------------>|  Target  |
+    |   Host   |            |   Host   |<------------|   Host   |
+    |          |<-----------|          |             |          |
+    +----------+            +----------+             +----------+
+
