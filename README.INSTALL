@@ -15,7 +15,6 @@ Table of Contents
   WMkick requires the following external modules:
 
     - coloredlogs (https://pypi.org/project/coloredlogs/)
-    - kargparse (https://github.com/KoreLogicSecurity/kargparse)
     - scapy (https://pypi.org/project/scapy/)
 
   The following is also required to properly function:
@@ -24,9 +23,9 @@ Table of Contents
   (5985/TCP), or WSMAN HTTPS (5986) requests via NTLMSSP.
 
     +----------+            +----------+             +----------+
-    |victim    |----------->|wmkick    |             |target    |
-    |          |            |  host    |------------>| windows  |
-    |          |            |          |<------------|  host    |
+    |          |----------->|          |             |          |
+    |  Victim  |            |  WMkick  |------------>|  Target  |
+    |   Host   |            |   Host   |<------------|   Host   |
     |          |<-----------|          |             |          |
     +----------+            +----------+             +----------+
 
