@@ -8,7 +8,7 @@ For a list of all contributors and sponsors, please refer to the
 project's "README.CREDITS" file.
 """
 
-VERSION = 0x00301800
+VERSION = 0x00302800
 
 def get_release_number():
     """Return the current release version as a number."""

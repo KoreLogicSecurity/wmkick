@@ -320,7 +320,7 @@ class NTLMHandler(Thread):
             self.tracker[sport] = NetNTLMv2Data(dport)
         elif msg_type == 2:
             # Track the challenge in NetNTLMv2 Data object.
-            chall = format(unpack("<Q", ntlm_data[24:32])[0], 'x')
+            chall = format(unpack(">Q", ntlm_data[24:32])[0], 'x')
             self.tracker[packet.getlayer("TCP").dport].server_challenge = chall
         elif msg_type == 3:
             # This is the Authenticate Message.
@@ -341,7 +341,7 @@ class NTLMHandler(Thread):
             resp_offset = ntlm_tup[5]
             ntchallenge = ntlm_data[resp_offset:resp_offset+resp_len]
             ntlm_blob_hmac = encode(ntchallenge, 'hex_codec')[:32].decode('ascii')
-            ntlm_blob = encode(ntchallenge, 'hex_codec')[33:].decode("ascii")
+            ntlm_blob = encode(ntchallenge, 'hex_codec')[32:].decode("ascii")
 
             # Save information in the tracker dictionary.
             sport = packet.getlayer("TCP").sport

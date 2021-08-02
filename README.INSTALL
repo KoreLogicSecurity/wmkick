@@ -17,18 +17,6 @@ Table of Contents
     - coloredlogs (https://pypi.org/project/coloredlogs/)
     - scapy (https://pypi.org/project/scapy/)
 
-  The following is also required to properly function:
-
-  * A target Windows 10 host accepting WMI (TCP/135), WSMAN HTTP
-  (5985/TCP), or WSMAN HTTPS (5986) requests via NTLMSSP.
-
-    +----------+            +----------+             +----------+
-    |          |----------->|          |             |          |
-    |  Victim  |            |  WMkick  |------------>|  Target  |
-    |   Host   |            |   Host   |<------------|   Host   |
-    |          |<-----------|          |             |          |
-    +----------+            +----------+             +----------+
-
   The installation process requires Python's setuptools. Depending on
   your environment, setuptools can be installed as documented below.
 
